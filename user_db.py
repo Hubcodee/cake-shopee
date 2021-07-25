@@ -9,14 +9,14 @@ def db(name, email, company, contact, message):
     user = {"name": name, "email": email, "company": company,
             "contact": contact, "message": message}
     client[db][col].insert(user)
-    res = client[db][col].find()
+    res = client[db][col].find().limit(20)
     return res, True
 
 
 def fetch_db():
     db = "test"
     col = "test"
-    res = client[db][col].find()
+    res = client[db][col].find().limit(20)
     return res, True
 
 
@@ -33,7 +33,7 @@ def mod_db(name=None, email=None, company=None, contact=None, message=None):
         query = {"message": message}
     user = {"email": email}
     client[db][col].update(user, {"$set": query})
-    res = client[db][col].find()
+    res = client[db][col].find().limit(20)
     return res, True
 
 
@@ -42,7 +42,7 @@ def del_user(name=None, email=None):
     col = "test"
     user = {"name": name, "email": email}
     client[db][col].delete_one(user)
-    res = client[db][col].find()
+    res = client[db][col].find().limit(20)
     return res, True
 
 
