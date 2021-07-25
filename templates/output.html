@@ -276,26 +276,80 @@
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Update here</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body" style="background-color: #afafeb;">
-                                            <div class="container mt-5 mb-5 d-flex justify-content-center">
-                                                <div class="card1 px-1 py-4">
-                                                    <div class="card-body">
+                                    <form action="/modification" method="post">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modify user </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body" style="background-color: #afafeb;">
 
+                                                <div class="container mt-5 mb-5 d-flex justify-content-center">
+                                                    <div class="card1 px-1 py-4">
+                                                        <div class="card-body">
+
+                                                            <label for="uemail">Employee email *</label>
+                                                            <input id="uemail" type="email" name="email" required>
+                                                            <br>
+                                                            <br>
+
+                                                            <label for="field">Select field to be modified *</label>
+                                                            <select id="field" name="User_Details"
+                                                                onchange="getSelectedValue();">
+                                                                <option value="Name" id="1" name="name">Name</option>
+                                                                <option value="Faculty Name" id="2" name="company">
+                                                                    Faculty Name
+                                                                </option>
+                                                                <option value="Contact Number" id="3" name="contact">
+                                                                    Contact Number
+                                                                </option>
+                                                                <option value="Remarks" id="4" name="message">Remarks
+                                                                </option>
+                                                            </select>
+                                                            <input id="inp" type="text" value="Enter Employee name"
+                                                                name="in" onclick="clear_inp()" required>
+
+                                                            <script>
+                                                                function clear_inp() {
+                                                                    document.getElementById("inp").value = "";
+                                                                }
+                                                                function getSelectedValue() {
+                                                                    const sb = document.querySelector("#field").selectedIndex;
+
+                                                                    if (sb == 0) {
+                                                                        // alert(document.getElementById("field").value);
+                                                                        pass;
+                                                                    }
+                                                                    else if (sb == 1) {
+                                                                        // alert(document.getElementById("field").value);
+                                                                        document.getElementById("inp").type = "text";
+                                                                        document.getElementById("inp").value = "Enter Faculty Name";
+                                                                    }
+                                                                    else if (sb == 2) {
+                                                                        // alert(document.getElementById("field").value);
+
+                                                                        document.getElementById("inp").value = "Enter Contact ";
+                                                                    }
+                                                                    else {
+                                                                        // alert(document.getElementById("field").value);
+                                                                        document.getElementById("inp").type = "text";
+                                                                        document.getElementById("inp").value = "Enter Remarks"
+                                                                    }
+                                                                }
+
+                                                            </script>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn">Update</button>
-                                        </div>
-                                    </div>
+                                            <div class="modal-footer">
+
+                                                <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" name="update" class="btn">Update</button>
+
+                                            </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -303,6 +357,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 
